@@ -1,0 +1,317 @@
+import React from 'react';
+import { Printer, Mail, CheckCircle2, ShieldCheck, Globe, Rocket, BarChart3, Settings, Info, DollarSign, Calendar, Users, HeartHandshake, Calculator, TrendingUp, Star } from 'lucide-react';
+
+const App = () => {
+  const brandColor = "#44428d";
+  
+  const systemData = {
+    referenceNumber: "SOW-2025-LMR-01",
+    issueDate: "December 30, 2025",
+    sender: {
+      name: "Fullyo.io",
+      email: "hello@fullyo.io",
+      website: "www.fullyo.io"
+    },
+    client: {
+      name: "Legacy Mountain Retreat",
+      contact: "Management Team",
+      website: "[Website URL To Be Confirmed]",
+      email: "info@legacymountainretreat.com"
+    },
+    package: {
+      name: "The Fullyo System: Pro Implementation",
+      price: "$5,500",
+      description: "A comprehensive operational foundation set for a successful launch, shifting focus from OTA reliance to a 50/50 Direct Booking split with a 75% growth objective."
+    },
+    roi: {
+      avgNightly: 500,
+      baseDays: 180, // 50%
+      growthDays: 274, // 75%
+      commissionRate: 0.15,
+      baseSavings: 6750,
+      growthRevenue: 137000,
+      nightsToPay: 11
+    },
+    scope: [
+      { 
+        title: "1. Strategic Analysis & Blueprint", 
+        icon: <Settings size={14} />,
+        items: ["Launch Readiness Audit", "Direct-Booking vs OTA Strategy (50/50 Target)", "75% Occupancy Growth Roadmap"] 
+      },
+      { 
+        title: "2. Bespoke Direct Booking Site", 
+        icon: <Globe size={14} />,
+        items: ["7-9 Custom Pages (Events, Blog, Calendar)", "In-house Upsell Engine (Early Check-in, etc.)", "Local Partner Integration Section", "SEO & Mobile Optimization"] 
+      },
+      { 
+        title: "3. Multi-Channel Strategy", 
+        icon: <Rocket size={14} />,
+        items: ["Guesty Channel Manager config", "Airbnb, Booking, Vrbo, Google VR sync", "Automated Pricing & Unified Messaging", "Special Events Booking Infrastructure"] 
+      },
+      { 
+        title: "4. All-in-One Command Center", 
+        icon: <CheckCircle2 size={14} />,
+        items: ["Guesty PRO Property Management setup", "6 Private Onboarding & Training Sessions", "Includes $1,500 Guesty Pro Setup Credit", "Guesty Subscription: ~$60/mo (1 Listing)"] 
+      },
+      { 
+        title: "5. Marketing & Growth Plan", 
+        icon: <BarChart3 size={14} />,
+        items: ["Upsell Strategy (Local Experiences/Services)", "Special Events Marketing Blueprint", "Email Capture & Retention Tools", "Growth Tracking to 75% Capacity"] 
+      }
+    ],
+    terms: [
+      { title: "1. Guesty Subscription", content: "Fullyo covers the standard Guesty Pro account setup cost (valued at $1,500 USD). Ongoing software fees are ~$60/mo for a single listing, managed through Fullyo for preferred support." },
+      { title: "2. Website Ownership", content: "The client owns the website, domain, and content in full. Transfer to other providers is available at no cost upon request." },
+      { title: "3. Maintenance & Revisions", content: "Covers corrections for errors (typos, bugs). Functional enhancements fall outside standard maintenance." },
+      { title: "4. Implementation Scope", content: "Covers the full setup of the website build (7-9 pages), 6 training sessions, and Guesty onboarding." },
+      { title: "5. Delivery Timeline", content: "Project delivery timeframe is 10–14 days, assuming all required content is provided on time." },
+      { title: "6. Satisfaction Guarantee", content: "Fullyo.io guarantees satisfaction within the agreed project scope and will resolve any issues." }
+    ]
+  };
+
+  const handlePrint = () => {
+    window.print();
+  };
+
+  return (
+    <div className="min-h-screen bg-slate-50 py-12 px-4 sm:px-6 lg:px-8 font-sans print:bg-white print:p-0 text-slate-900">
+      {/* Controls */}
+      <div className="max-w-4xl mx-auto mb-6 flex justify-between items-center print:hidden">
+        <h1 className="text-xl font-bold text-slate-800 tracking-tight">Service Overview Preview</h1>
+        <div className="flex gap-3">
+          <button 
+            onClick={handlePrint}
+            className="flex items-center gap-2 px-4 py-2 bg-white border border-slate-200 rounded-lg text-slate-600 hover:bg-slate-50 transition-colors shadow-sm font-medium"
+          >
+            <Printer size={18} />
+            <span>Save as PDF</span>
+          </button>
+        </div>
+      </div>
+
+      <div className="max-w-4xl mx-auto bg-white shadow-xl rounded-2xl overflow-hidden border border-slate-100 print:shadow-none print:border-none print:rounded-none">
+        <div style={{ backgroundColor: brandColor }} className="h-2 w-full" />
+        
+        <div className="p-8 sm:p-12">
+          {/* Header */}
+          <div className="flex flex-col md:flex-row justify-between gap-8 mb-12">
+            <div>
+              <div className="flex items-center gap-3 mb-4">
+                <div 
+                  style={{ backgroundColor: brandColor }} 
+                  className="w-12 h-12 rounded-xl flex items-center justify-center text-white font-bold text-2xl"
+                >
+                  F
+                </div>
+                <h2 className="text-2xl font-bold text-slate-900 tracking-tight">{systemData.sender.name}</h2>
+              </div>
+              <div className="text-slate-500 text-sm space-y-1">
+                <p className="flex items-center gap-2 font-medium tracking-tight text-slate-600">
+                  <Mail size={14} style={{ color: brandColor }} /> {systemData.sender.email}
+                </p>
+                <p className="ml-5 font-medium">{systemData.sender.website}</p>
+              </div>
+            </div>
+
+            <div className="text-left md:text-right">
+              <h3 className="text-3xl font-black text-slate-900 mb-1 uppercase tracking-tighter">System Blueprint</h3>
+              <p style={{ color: brandColor }} className="font-bold text-lg leading-tight uppercase tracking-widest text-xs">Service Overview</p>
+              <div className="mt-6 flex flex-col md:items-end gap-1 text-sm">
+                <div className="flex gap-2">
+                  <span className="text-slate-400 font-medium uppercase tracking-wider text-[10px]">Reference:</span>
+                  <span className="text-slate-700 font-bold">{systemData.referenceNumber}</span>
+                </div>
+                <div className="flex gap-2">
+                  <span className="text-slate-400 font-medium uppercase tracking-wider text-[10px]">Date Issued:</span>
+                  <span className="text-slate-700 font-bold">{systemData.issueDate}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Client & Description Summary */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 bg-slate-50 rounded-2xl p-8 border border-slate-100">
+            <div className="md:col-span-1 border-b md:border-b-0 md:border-r border-slate-200 pb-6 md:pb-0 md:pr-8">
+              <h4 style={{ color: brandColor }} className="text-[10px] font-black uppercase tracking-[0.2em] mb-3">Prepared For</h4>
+              <h5 className="text-xl font-bold text-slate-900 leading-tight">{systemData.client.name}</h5>
+              <div className="text-slate-500 text-[11px] space-y-1 mt-3">
+                <p className="flex items-center gap-2 italic">
+                  <Globe size={12} className="opacity-70" /> {systemData.client.website}
+                </p>
+              </div>
+            </div>
+            <div className="md:col-span-2 flex flex-col justify-between">
+              <div>
+                <h4 style={{ color: brandColor }} className="text-[10px] font-black uppercase tracking-[0.2em] mb-3">Service Focus</h4>
+                <div className="flex justify-between items-start">
+                  <h5 className="text-lg font-bold text-slate-900 mb-2">{systemData.package.name}</h5>
+                  <div className="flex flex-col items-end gap-1">
+                    <div className="flex items-center gap-1 bg-white px-3 py-1 rounded-full border border-slate-200 shadow-sm">
+                      <DollarSign size={14} className="text-emerald-600" />
+                      <span className="text-emerald-700 font-bold text-sm">{systemData.package.price}</span>
+                    </div>
+                  </div>
+                </div>
+                <p className="text-slate-500 text-xs leading-relaxed mt-1">
+                  {systemData.package.description}
+                </p>
+              </div>
+              <div className="mt-4 flex flex-wrap gap-4">
+                <div className="flex items-center gap-2">
+                  <Calendar size={14} style={{ color: brandColor }} />
+                  <span className="text-[11px] font-bold text-slate-700">10–14 Days Implementation</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Users size={14} style={{ color: brandColor }} />
+                  <span className="text-[11px] font-bold text-slate-700">6 Guided Training Sessions</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Detailed Project Scope */}
+          <div className="mb-12">
+            <h4 className="text-[10px] font-black text-slate-400 uppercase tracking-[0.3em] mb-6 flex items-center gap-2">
+              <span className="w-8 h-px bg-slate-200" /> 
+              The Implementation Roadmap
+              <span className="flex-1 h-px bg-slate-200" />
+            </h4>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {systemData.scope.map((section, idx) => (
+                <div key={idx} className="group border border-slate-100 p-5 rounded-xl hover:shadow-md transition-all duration-300 bg-white">
+                  <h6 style={{ color: brandColor }} className="text-xs font-black uppercase mb-3 flex items-center gap-2">
+                    <span className="p-1.5 rounded-lg bg-slate-50">{section.icon}</span>
+                    {section.title}
+                  </h6>
+                  <ul className="text-[11px] text-slate-600 space-y-2">
+                    {section.items.map((item, i) => (
+                      <li key={i} className={`flex items-start gap-2 leading-tight ${item.includes('$1,500') || item.includes('7-9') || item.includes('Upsell') ? 'font-bold text-slate-900' : ''}`}>
+                        <CheckCircle2 size={10} style={{ color: brandColor }} className="mt-0.5 opacity-60 flex-shrink-0" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+              
+              {/* Highlight Box */}
+              <div style={{ borderColor: brandColor }} className="border-2 border-dashed p-5 rounded-xl flex flex-col justify-center items-center text-center bg-slate-50/50">
+                <HeartHandshake size={24} style={{ color: brandColor }} className="mb-3 opacity-40" />
+                <h6 className="text-[10px] font-black text-slate-900 uppercase tracking-widest mb-1">Ongoing Support & Dual Service</h6>
+                <p className="text-[10px] text-slate-500 italic">Direct management between Fullyo & Guesty ensures you have dual layers of expert customer service.</p>
+              </div>
+            </div>
+          </div>
+
+          {/* ROI Projection Box */}
+          <div className="mb-12 bg-[#44428d]/5 border border-[#44428d]/10 rounded-2xl overflow-hidden">
+            <div className="p-6">
+                <div className="mb-6 flex items-center gap-2">
+                    <Calculator size={18} style={{ color: brandColor }} />
+                    <h4 className="text-[11px] font-black text-slate-800 uppercase tracking-[0.2em]">Investment ROI Analysis & Growth Objective</h4>
+                </div>
+                
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+                    <div className="p-4 bg-white rounded-xl border border-slate-100 shadow-sm">
+                        <p className="text-[9px] text-slate-400 font-bold uppercase mb-1">Comm. Savings</p>
+                        <p className="text-xl font-black text-emerald-600">${systemData.roi.baseSavings.toLocaleString()}</p>
+                    </div>
+                    <div className="p-4 bg-white rounded-xl border border-slate-100 shadow-sm">
+                        <p className="text-[9px] text-slate-400 font-bold uppercase mb-1">Setup Payback</p>
+                        <p className="text-xl font-black text-slate-900">11 <span className="text-[10px] text-slate-400 font-normal">Nights</span></p>
+                    </div>
+                    <div className="p-4 bg-white rounded-xl border border-slate-100 shadow-sm relative overflow-hidden">
+                        <div className="absolute top-0 right-0 p-1">
+                            <Star size={12} className="text-amber-400 fill-amber-400" />
+                        </div>
+                        <p className="text-[9px] text-amber-600 font-bold uppercase mb-1">Growth Objective</p>
+                        <p className="text-xl font-black text-slate-900">75% <span className="text-[10px] text-slate-400 font-normal">Capacity</span></p>
+                    </div>
+                    <div className="p-4 bg-emerald-600 rounded-xl shadow-lg shadow-emerald-100 text-white flex flex-col justify-center">
+                        <p className="text-[9px] opacity-80 font-bold uppercase mb-0.5">Asset Status</p>
+                        <p className="text-lg font-black leading-tight tracking-tight uppercase">Paid for Life</p>
+                    </div>
+                </div>
+
+                {/* Calculation Breakdown */}
+                <div className="bg-white/60 rounded-xl p-5 border border-slate-200/50">
+                    <h5 className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-4 flex items-center gap-2">
+                        How we calculate these numbers:
+                    </h5>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-12">
+                        <div className="space-y-3">
+                            <p className="text-[10px] font-bold text-slate-500 uppercase">Phase 1: Initial System ROI</p>
+                            <div className="flex justify-between items-center text-xs">
+                                <span className="text-slate-500">Gross Rev (180 nights @ $500/nt)</span>
+                                <span className="font-bold text-slate-800">$90,000</span>
+                            </div>
+                            <div className="flex justify-between items-center text-xs">
+                                <span className="text-slate-500">Direct-Booking Shift (50% Split)</span>
+                                <span className="font-bold text-slate-800">$45,000</span>
+                            </div>
+                            <div className="flex justify-between items-center text-xs">
+                                <span className="text-slate-600 font-bold">Total Commission Savings (15%)</span>
+                                <span className="font-bold text-emerald-600">$6,750 / yr</span>
+                            </div>
+                        </div>
+                        <div className="space-y-3">
+                            <p className="text-[10px] font-bold text-amber-600 uppercase">Phase 2: 75% Capacity Growth</p>
+                            <div className="flex justify-between items-center text-xs">
+                                <span className="text-slate-500">Target Nights (75% Occupancy)</span>
+                                <span className="font-bold text-slate-800">274 Nights</span>
+                            </div>
+                            <div className="flex justify-between items-center text-xs">
+                                <span className="text-slate-500">Upsells + Partner Rev (Est.)</span>
+                                <span className="font-bold text-slate-800">+12% / stay</span>
+                            </div>
+                            <div className="flex justify-between items-center text-xs border-t border-slate-100 pt-2">
+                                <span className="text-slate-600 font-bold">Projected Annual Revenue</span>
+                                <span className="font-bold text-[#44428d]">${systemData.roi.growthRevenue.toLocaleString()}++</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p className="mt-4 text-[10px] text-slate-400 italic leading-relaxed">
+                        *Infrastructure is built to support in-house upsells (early check-ins, rentals) and local partner integrations. Once the 11th night is booked direct, the system is fully recovered.
+                    </p>
+                </div>
+            </div>
+          </div>
+
+          {/* Terms & Conditions */}
+          <div className="mb-12 border-t border-slate-100 pt-12">
+            <h4 className="text-[10px] font-black text-slate-400 uppercase tracking-[0.3em] mb-6 flex items-center gap-2">
+              <ShieldCheck size={16} className="text-slate-400" />
+              Service Standards & Ownership
+            </h4>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6 text-sm">
+              {systemData.terms.map((term, idx) => (
+                <div key={idx} className="space-y-1">
+                  <h6 className="font-bold text-slate-800 text-xs">{term.title}</h6>
+                  <p className="text-slate-500 leading-relaxed text-[11px]">{term.content}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Bottom Footer Info */}
+          <div className="mt-12 pt-8 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div className="text-center md:text-left">
+              <p className="text-slate-400 text-[10px] tracking-[0.4em] uppercase font-bold mb-1">
+                Fullyo.io System Implementation
+              </p>
+              <p className="text-slate-300 text-[9px]">
+                Building a complete operational and marketing foundation for Legacy Mountain Retreat.
+              </p>
+            </div>
+            <div className="text-[10px] text-slate-400 font-mono tracking-tighter">
+              Doc Ref: {systemData.referenceNumber}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default App;
